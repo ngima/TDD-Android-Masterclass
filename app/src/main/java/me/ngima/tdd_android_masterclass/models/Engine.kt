@@ -1,10 +1,8 @@
-package me.ngima.tdd_android_masterclass.engine
+package me.ngima.tdd_android_masterclass.models
 
 class Engine(
-    val cc: Int,
-    val horsePower: Int,
-    var temperature: Int,
-    var isTurnedOn: Boolean
+    var temperature: Int = 15,
+    var isTurnedOn: Boolean = false
 ) {
 
 
