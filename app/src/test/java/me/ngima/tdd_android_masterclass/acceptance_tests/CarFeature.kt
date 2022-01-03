@@ -1,9 +1,13 @@
 package me.ngima.tdd_android_masterclass.acceptance_tests
 
+import com.example.outsideintddexample.acceptancetests.MainCoroutineScopeRule
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import me.ngima.tdd_android_masterclass.models.Car
 import me.ngima.tdd_android_masterclass.models.Engine
+import org.junit.Rule
 import org.junit.Test
 
 class CarFeature {
@@ -11,8 +15,11 @@ class CarFeature {
     private val engine = Engine()
     private val car = Car(6.0, engine)
 
+    @get:Rule
+    var couroutinesTestRule = MainCoroutineScopeRule()
+
     @Test
-    fun carIsLoosingFuelWhenItTurnsOn(){
+    fun carIsLoosingFuelWhenItTurnsOn() = runBlockingTest{
 
         car.turnOn()
 
@@ -21,9 +28,10 @@ class CarFeature {
 
 
     @Test
-    fun carIsTurningOnItsEngineAndIncreasesTheTemperature(){
+    fun carIsTurningOnItsEngineAndIncreasesTheTemperature() = runBlockingTest{
         car.turnOn()
 
+        couroutinesTestRule.advanceTimeBy(6001)
         assertEquals(95, car.engine.temperature)
         assertTrue( car.engine.isTurnedOn)
     }
