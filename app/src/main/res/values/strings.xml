@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TDD-Android-Masterclass</string>
+    <string name="playlist_screen_title">Playlists</string>
 </resources>

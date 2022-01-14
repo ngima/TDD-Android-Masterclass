@@ -11,6 +11,7 @@
         android:theme="@style/Theme.TDDAndroidMasterclass">
         <activity
             android:name=".MainActivity"
+            android:label="@string/playlist_screen_title"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
