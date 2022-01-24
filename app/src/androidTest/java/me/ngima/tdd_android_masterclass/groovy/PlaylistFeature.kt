@@ -39,6 +39,8 @@ class PlaylistFeature {
 
     @Test
     fun displaysListOfPlaylists() {
+
+        Thread.sleep(4000)
         assertRecyclerViewItemCount(R.id.playlist_list, 10)
 
         // Check if name with id playlist_name with text Hard Rock Cafe is displayed
